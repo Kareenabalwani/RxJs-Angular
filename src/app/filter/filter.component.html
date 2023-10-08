@@ -1,0 +1,68 @@
+<h1>Filter</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <p class="bg-light py-2 my-2 border rounded">Filter<b>By Name </b></p>
+
+        <hr>
+        <b>Ex:1</b>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr *ngFor="let i of data">
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-md-4">
+        <p class="bg-light py-2 my-2 border rounded">Filter<b> by Gender</b></p>
+        <b>Ex:2</b>
+        
+        <hr>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr *ngFor="let i of data2">
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.gender}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-md-4">
+        <p class="bg-light py-2 my-2 border rounded">Filter by<b>Nth Item</b></p>
+        <b>Ex:3</b>
+       
+        <hr>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr *ngFor="let i of data3">
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.gender}}</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div class="row">
+    <!-- <div class="col-md-12">
+        <p class="bg-light py-2 my-2 border rounded"><b>Nested Pluck</b> fetch Job title</p>
+        <b>users: [name:value,skils:value,job->
+            <br>title:value,exp:value]</b>
+        <ul *ngFor="let i of data3">
+            <li>{{i}}</li>
+        </ul>
+        <hr>
+    </div> -->
+</div>

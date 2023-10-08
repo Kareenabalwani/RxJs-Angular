@@ -11,4 +11,10 @@ export class UtilityServiceService {
     li.innerText   = "video"+   count; 
     document.getElementById(id)?.appendChild(li);
   }
+  print2(id:string,content:any){
+    var li = document.createElement('li');
+    li.innerText   = content; 
+    document.getElementById(id)?.appendChild(li);
+  }
 }
+

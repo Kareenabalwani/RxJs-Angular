@@ -1,0 +1,58 @@
+Pluck operator:
+ get only one property of an object from any other objects
+from(this.users).subscribe(res=>{
+    console.log(res);
+  }) 
+now u might think ki just iterate over the userlist using ngFor and display only item.skills
+but you can't iterate because it is an observable stream not an arraY(so you can alson convert it in an array)
+OR
+from(this.users).pipe(map(x=> x.Skill)).subscribe(res=>{
+    console.log(res);
+  });
+
+
+Filter:
+===========
+filter is used to apply filters on data stream such as filter users by name length ,by gender etc;
+
+//Ex:1 Filter by Name length
+source.pipe(filter(x=> x.name.length>=6),toArray()).subscribe(data=>{
+  console.log(data);
+  this.data=data;
+});
+
+
+
+Tap Operator:
+=========
+tap operator is useful to perform some task transparently for example setting a property, debugging the issues between two methods inside pipe to see where the error or issue is,to unsubscribe inside pipe's methods
+you can't use if conditions inside map so if you want to do so
+you can use tap
+
+apply style like this:
+<div class="row" [ngStyle]="{'color':'red'}">
+
+'color':'red' here red is treated as it is
+'color':mycolor which is without single quotes is treated as a variable of ts file
+
+
+take operator:
+=============
+take takes/selects only the specified number of items
+
+takeLast takes only the specified number of items but from last 
+ex: takelast(5) will take last 5 items
+
+takeUntil takes items until the condition is satisfied
+ex: stop until you click
+on anywhere on document
+ let condition2 = fromEvent(document,'click');
+    source2.pipe(takeUntil(condition2)).subscribe(data=>{
+      console.log(data);
+      this._utilityService.print2("ul-id-until",data);
+    })
+
+
+and takeuntil takes an observables as its condition 
+
+

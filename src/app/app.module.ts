@@ -8,6 +8,10 @@ import { ObservablesComponent } from './observables/observables.component';
 import { AllComponent } from './observables/all/all.component';
 import { FormEventComponent } from './observables/form-event/form-event.component';
 import { IntervalComponent } from './interval/interval.component';
+import { PluckComponent } from './pluck/pluck.component';
+import { FilterComponent } from './filter/filter.component';
+import { TapComponent } from './tap/tap.component';
+import { TakeComponent } from './take/take.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { IntervalComponent } from './interval/interval.component';
     ObservablesComponent,
     AllComponent,
     FormEventComponent,
-    IntervalComponent
+    IntervalComponent,
+    PluckComponent,
+    FilterComponent,
+    TapComponent,
+    TakeComponent
   ],
   imports: [
     BrowserModule,
