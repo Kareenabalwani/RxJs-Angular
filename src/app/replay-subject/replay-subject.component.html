@@ -1,0 +1,41 @@
+<div class="row justify-content-center" >
+   
+       <div class="col-md-4">
+        <input type="text"class="form-control" placeholder="Enter video title" #video>
+       </div> 
+       <div class="col-md-3">
+        <button class="btn btn-success" (click)="AddNewVideo(video)">Add Video</button>
+       </div>
+   
+</div>
+
+<div class="row my-3">
+    <div class="col-md-4">
+        <p>User<strong>1</strong> </p>
+        <ul *ngFor="let i of userlist1">
+            <li>Video: <strong>{{i}}</strong></li>
+            
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <p>User<strong>2</strong> </p>
+        <ul *ngFor="let i of userlist2">
+            <li>Video: <strong>{{i}}</strong></li>
+            
+            
+        </ul>
+        <button class="btn btn-success" [ngClass]=" user2flag ?'btn-success':'btn-danger'" (click)="user2Click()">
+            {{user2flag ?  'Subscribe Channel' : 'Unubscribe Channel' }}</button>
+    </div>
+    <div class="col-md-4">
+        <p>User<strong>3</strong> </p>
+        <ul *ngFor="let i of userlist3">
+            <li>Video: <strong>{{i}}</strong></li>
+            
+          
+        </ul>
+        <button class="btn btn-success" [ngClass]=" user3flag ?'btn-success':'btn-danger'" (click)="user3Click()">
+            {{user3flag ?  'Subscribe Channel' : 'Unubscribe Channel' }}</button>
+    </div>
+</div>
+

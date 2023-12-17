@@ -12,6 +12,9 @@ import { PluckComponent } from './pluck/pluck.component';
 import { FilterComponent } from './filter/filter.component';
 import { TapComponent } from './tap/tap.component';
 import { TakeComponent } from './take/take.component';
+import { ReplaySubjectComponent } from './replay-subject/replay-subject.component';
+import { MergeMapComponent } from './merge-map/merge-map.component';
+import { ConcatMapComponent } from './concat-map/concat-map.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { TakeComponent } from './take/take.component';
     PluckComponent,
     FilterComponent,
     TapComponent,
-    TakeComponent
+    TakeComponent,
+    ReplaySubjectComponent,
+    MergeMapComponent,
+    ConcatMapComponent
   ],
   imports: [
     BrowserModule,
