@@ -11,6 +11,8 @@ import { TakeComponent } from './take/take.component';
 import { ReplaySubjectComponent } from './replay-subject/replay-subject.component';
 import { MergeMapComponent } from './merge-map/merge-map.component';
 import { ConcatMapComponent } from './concat-map/concat-map.component';
+import { SwitchMapComponent } from './switch-map/switch-map.component';
+import { SwitchmapSearchComponent } from './switchmap-search/switchmap-search.component';
 
 const routes: Routes = [
   {path:"obs",component:ObservablesComponent,children:[
@@ -27,6 +29,9 @@ const routes: Routes = [
   {path:'replay',component:ReplaySubjectComponent},
   {path:'mergemap',component:MergeMapComponent},
   {path:'concatmap',component:ConcatMapComponent},
+  {path:'switchmap',component:SwitchMapComponent},
+  {path:'switchmapsearch',component:SwitchmapSearchComponent},
+
 
 
 
