@@ -19,6 +19,9 @@ import { SwitchMapComponent } from './switch-map/switch-map.component';
 import { SwitchmapSearchComponent } from './switchmap-search/switchmap-search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ExhaustMapComponent } from './exhaust-map/exhaust-map.component';
+import { ShareReplayComponent } from './share-replay/share-replay.component';
+import { CombineLatestComponent } from './combine-latest/combine-latest.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { HttpClientModule } from '@angular/common/http';
     MergeMapComponent,
     ConcatMapComponent,
     SwitchMapComponent,
-    SwitchmapSearchComponent
+    SwitchmapSearchComponent,
+    ExhaustMapComponent,
+    ShareReplayComponent,
+    CombineLatestComponent
   ],
   imports: [
     BrowserModule,

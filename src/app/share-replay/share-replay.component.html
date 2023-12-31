@@ -1,0 +1,31 @@
+<p>share-replay works!</p>
+<div class="row" >
+    <div class="card"  *ngFor="let item of allTodos | async" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title">{{item.id}}</h5>
+          <p class="card-text">{{item.title}}.</p>
+          <a href="#" class="btn btn-primary" [ngClass]="item.completed?'green':'red'">{{item.completed==true?'completed':"Not completed"}}</a>
+        </div>
+      </div>
+</div>
+<div class="row">
+    <h1>Completed</h1>
+    <div class="card col-md-2"  *ngFor="let item of completed | async" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title">{{item.id}}</h5>
+          <p class="card-text">{{item.title}}.</p>
+          <a href="#" class="btn btn-primary" [ngClass]="item.completed?'green':'red'">{{item.completed==true?'completed':"Not completed"}}</a>
+        </div>
+      </div>
+      <h1>InCompleted</h1>
+      <div class="card col-md-2"  *ngFor="let item of Incompleted  | async" style="width: 18rem;">
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">{{item.id}}</h5>
+            <p class="card-text">{{item.title}}.</p>
+            <a href="#" class="btn btn-primary" [ngClass]="item.completed?'green':'red'">{{item.completed==true?'completed':"Not completed"}}</a>
+          </div>
+        </div>
+</div>

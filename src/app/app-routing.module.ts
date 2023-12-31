@@ -13,6 +13,8 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
 import { ConcatMapComponent } from './concat-map/concat-map.component';
 import { SwitchMapComponent } from './switch-map/switch-map.component';
 import { SwitchmapSearchComponent } from './switchmap-search/switchmap-search.component';
+import { ShareReplayComponent } from './share-replay/share-replay.component';
+import { CombineLatestComponent } from './combine-latest/combine-latest.component';
 
 const routes: Routes = [
   {path:"obs",component:ObservablesComponent,children:[
@@ -31,6 +33,10 @@ const routes: Routes = [
   {path:'concatmap',component:ConcatMapComponent},
   {path:'switchmap',component:SwitchMapComponent},
   {path:'switchmapsearch',component:SwitchmapSearchComponent},
+  {path:'sharereplay',component:ShareReplayComponent},
+  {path:'combinelatest',component:CombineLatestComponent},
+
+
 
 
 
