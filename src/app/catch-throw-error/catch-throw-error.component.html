@@ -1,0 +1,13 @@
+<p>catch-throw-error works!</p>
+<div class="row" >
+    <p style="color:red" *ngIf="error">{{error}}</p>
+    <div class="card"  *ngFor="let item of allTodos" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title">{{item.id}}</h5>
+          <p class="card-text">{{item.title}}.</p>
+          <a href="#" class="btn btn-primary" [ngClass]="item.completed?'green':'red'">{{item.completed==true?'completed':"Not completed"}}</a>
+        </div>
+      </div>
+</div>
+

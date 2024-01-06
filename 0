@@ -1,0 +1,184 @@
+[33mcommit f7595d76ee58bf6d9d3878804db277d2e6f6e1a9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Kareenabalwani <kareenabalwani5@gmail.com>
+Date:   Sun Dec 31 20:25:45 2023 +0530
+
+    sharereplay and combinelatest half
+
+[1mdiff --git a/src/app/app-routing.module.ts b/src/app/app-routing.module.ts[m
+[1mindex f8ee353..57c7bb7 100644[m
+[1m--- a/src/app/app-routing.module.ts[m
+[1m+++ b/src/app/app-routing.module.ts[m
+[36m@@ -13,6 +13,8 @@[m [mimport { MergeMapComponent } from './merge-map/merge-map.component';[m
+ import { ConcatMapComponent } from './concat-map/concat-map.component';[m
+ import { SwitchMapComponent } from './switch-map/switch-map.component';[m
+ import { SwitchmapSearchComponent } from './switchmap-search/switchmap-search.component';[m
+[32m+[m[32mimport { ShareReplayComponent } from './share-replay/share-replay.component';[m
+[32m+[m[32mimport { CombineLatestComponent } from './combine-latest/combine-latest.component';[m
+ [m
+ const routes: Routes = [[m
+   {path:"obs",component:ObservablesComponent,children:[[m
+[36m@@ -31,6 +33,10 @@[m [mconst routes: Routes = [[m
+   {path:'concatmap',component:ConcatMapComponent},[m
+   {path:'switchmap',component:SwitchMapComponent},[m
+   {path:'switchmapsearch',component:SwitchmapSearchComponent},[m
+[32m+[m[32m  {path:'sharereplay',component:ShareReplayComponent},[m
+[32m+[m[32m  {path:'combinelatest',component:CombineLatestComponent},[m
+[32m+[m
+[32m+[m
+ [m
+ [m
+ [m
+[1mdiff --git a/src/app/app.module.ts b/src/app/app.module.ts[m
+[1mindex 260fbdd..a59994b 100644[m
+[1m--- a/src/app/app.module.ts[m
+[1m+++ b/src/app/app.module.ts[m
+[36m@@ -19,6 +19,9 @@[m [mimport { SwitchMapComponent } from './switch-map/switch-map.component';[m
+ import { SwitchmapSearchComponent } from './switchmap-search/switchmap-search.component';[m
+ import { FormsModule } from '@angular/forms';[m
+ import { HttpClientModule } from '@angular/common/http';[m
+[32m+[m[32mimport { ExhaustMapComponent } from './exhaust-map/exhaust-map.component';[m
+[32m+[m[32mimport { ShareReplayComponent } from './share-replay/share-replay.component';[m
+[32m+[m[32mimport { CombineLatestComponent } from './combine-latest/combine-latest.component';[m
+ [m
+ @NgModule({[m
+   declarations: [[m
+[36m@@ -35,7 +38,10 @@[m [mimport { HttpClientModule } from '@angular/common/http';[m
+     MergeMapComponent,[m
+     ConcatMapComponent,[m
+     SwitchMapComponent,[m
+[31m-    SwitchmapSearchComponent[m
+[32m+[m[32m    SwitchmapSearchComponent,[m
+[32m+[m[32m    ExhaustMapComponent,[m
+[32m+[m[32m    ShareReplayComponent,[m
+[32m+[m[32m    CombineLatestComponent[m
+   ],[m
+   imports: [[m
+     BrowserModule,[m
+[1mdiff --git a/src/app/combine-latest/combine-latest.component.html b/src/app/combine-latest/combine-latest.component.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6da5e61[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/combine-latest/combine-latest.component.html[m
+[36m@@ -0,0 +1,26 @@[m
+[32m+[m[32m<p>combine-latest works!</p>[m
+[32m+[m[32m<div class="row">[m
+[32m+[m[32m <div class="combinelatest row mb-3">[m
+[32m+[m[32m    <div class="col-md-2">[m
+[32m+[m[32m        <select class="form-control" name="names" id="">[m
+[32m+[m[32m            <option *ngFor="let item of names" value={{item}}>{{item}}</option>[m
+[32m+[m[32m        </select>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m    <div class="col-md-2">[m
+[32m+[m[32m        <div class="dabba">I m dabba[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m </div>[m
+[32m+[m[32m <div class="withlatest row">[m
+[32m+[m[32m    <div class="col-md-2">[m
+[32m+[m[32m        <select class="form-control" name="colors" id="">[m
+[32m+[m[32m            <option *ngFor="let item of colors" value={{item}}>{{item}}</option>[m
+[32m+[m[32m        </select>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m    <div class="col-md-2">[m
+[32m+[m[32m        <div class="dabba">I m dabba[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m </div>[m
+[32m+[m[32m</div>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/combine-latest/combine-latest.component.scss b/src/app/combine-latest/combine-latest.component.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f25e596[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/combine-latest/combine-latest.component.scss[m
+[36m@@ -0,0 +1,26 @@[m
+[32m+[m
+[32m+[m[32m.dabba{[m
+[32m+[m[32m    background-color: aqua;[m
+[32m+[m[32m    width: 220px;[m
+[32m+[m[32m    height:50px ;[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    border-radius: 4px;[m
+[32m+[m[32m}[m
+[32m+[m[32m.red{[m
+[32m+[m[32m    background-color: red;[m
+[32m+[m[32m}[m
+[32m+[m[32m.green{[m
+[32m+[m[32m    background-color: green;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.yellow{[m
+[32m+[m[32m    background-color: yellow;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.orange{[m
+[32m+[m[32m    background-color: orange;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.purple{[m
+[32m+[m[32m    background-color: purple;[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/app/combine-latest/combine-latest.component.spec.ts b/src/app/combine-latest/combine-latest.component.spec.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..177a7fa[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/combine-latest/combine-latest.component.spec.ts[m
+[36m@@ -0,0 +1,21 @@[m
+[32m+[m[32mimport { ComponentFixture, TestBed } from '@angular/core/testing';[m
+[32m+[m
+[32m+[m[32mimport { CombineLatestComponent } from './combine-latest.component';[m
+[32m+[m
+[32m+[m[32mdescribe('CombineLatestComponent', () => {[m
+[32m+[m[32m  let component: CombineLatestComponent;[m
+[32m+[m[32m  let fixture: ComponentFixture<CombineLatestComponent>;[m
+[32m+[m
+[32m+[m[32m  beforeEach(() => {[m
+[32m+[m[32m    TestBed.configureTestingModule({[m
+[32m+[m[32m      declarations: [CombineLatestComponent][m
+[32m+[m[32m    });[m
+[32m+[m[32m    fixture = TestBed.createComponent(CombineLatestComponent);[m
+[32m+[m[32m    component = fixture.componentInstance;[m
+[32m+[m[32m    fixture.detectChanges();[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  it('should create', () => {[m
+[32m+[m[32m    expect(component).toBeTruthy();[m
+[32m+[m[32m  });[m
+[32m+[m[32m});[m
+[1mdiff --git a/src/app/combine-latest/combine-latest.component.ts b/src/app/combine-latest/combine-latest.component.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..90b76cd[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/combine-latest/combine-latest.component.ts[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32mimport { Component } from '@angular/core';[m
+[32m+[m
+[32m+[m[32m@Component({[m
+[32m+[m[32m  selector: 'app-combine-latest',[m
+[32m+[m[32m  templateUrl: './combine-latest.component.html',[m
+[32m+[m[32m  styleUrls: ['./combine-latest.component.scss'][m
+[32m+[m[32m})[m
+[32m+[m[32mexport class CombineLatestComponent {[m
+[32m+[m[32mnames = ['john','doe','max','alex','nobita'];[m
+[32m+[m[32mcolors = ['red','green','yellow','orange','purple'];[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/app/exhaust-map/exhaust-map.component.html b/src/app/exhaust-map/exhaust-map.component.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6b1b3b8[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/exhaust-map/exhaust-map.component.html[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m<p>exhaust-map works!</p>[m
+[1mdiff --git a/src/app/exhaust-map/exhaust-map.component.scss b/src/app/exhaust-map/exhaust-map.component.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/src/app/exhaust-map/exhaust-map.component.spec.ts b/src/app/exhaust-map/exhaust-map.component.spec.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9037650[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/exhaust-map/exhaust-map.component.spec.ts[m
+[36m@@ -0,0 +1,21 @@[m
+[32m+[m[32mimport { ComponentFixture, TestBed } from '@angular/core/testing';[m
+[32m+[m

@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ExhaustMapComponent } from './exhaust-map/exhaust-map.component';
 import { ShareReplayComponent } from './share-replay/share-replay.component';
 import { CombineLatestComponent } from './combine-latest/combine-latest.component';
+import { ZipForkJoinComponent } from './zip-fork-join/zip-fork-join.component';
+import { CatchThrowErrorComponent } from './catch-throw-error/catch-throw-error.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { CombineLatestComponent } from './combine-latest/combine-latest.componen
     SwitchmapSearchComponent,
     ExhaustMapComponent,
     ShareReplayComponent,
-    CombineLatestComponent
+    CombineLatestComponent,
+    ZipForkJoinComponent,
+    CatchThrowErrorComponent
   ],
   imports: [
     BrowserModule,

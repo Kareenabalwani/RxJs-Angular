@@ -15,6 +15,8 @@ import { SwitchMapComponent } from './switch-map/switch-map.component';
 import { SwitchmapSearchComponent } from './switchmap-search/switchmap-search.component';
 import { ShareReplayComponent } from './share-replay/share-replay.component';
 import { CombineLatestComponent } from './combine-latest/combine-latest.component';
+import { ZipForkJoinComponent } from './zip-fork-join/zip-fork-join.component';
+import { CatchThrowErrorComponent } from './catch-throw-error/catch-throw-error.component';
 
 const routes: Routes = [
   {path:"obs",component:ObservablesComponent,children:[
@@ -35,6 +37,10 @@ const routes: Routes = [
   {path:'switchmapsearch',component:SwitchmapSearchComponent},
   {path:'sharereplay',component:ShareReplayComponent},
   {path:'combinelatest',component:CombineLatestComponent},
+  {path:'zipforkjoin',component:ZipForkJoinComponent},
+  {path:'catchthrow',component:CatchThrowErrorComponent},
+
+
 
 
 
